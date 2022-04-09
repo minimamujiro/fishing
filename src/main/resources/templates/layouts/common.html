@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+<body>
+　　<!-- layoutのreplaceの部分に置き換わる -->
+    <nav class="navbar navbar-light bg-light p-3" layout:fragment="nav">
+        <div class="d-flex col-12 col-md-3 col-lg-2 mb-2 mb-lg-0 flex-wrap flex-md-nowrap justify-content-between">
+            <a class="navbar-brand" href="#"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
+                Fishing Log
+            </font></font></a>
+            <button class="navbar-toggler d-md-none collapsed mb-3" type="button" data-toggle="collapse" data-target="#sidebar" aria-controls="sidebar" aria-expanded="false" aria-label="ナビゲーションを切り替える">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+        </div>
+        <div class="col-12 col-md-4 col-lg-2">
+            <input class="form-control form-control-dark" type="text" placeholder="探す" aria-label="探す">
+        </div>
+        <div class="col-12 col-md-5 col-lg-8 d-flex align-items-center justify-content-md-end mt-3 mt-md-0">
+            <div class="mr-3 mt-1">
+                <span></span>
+            </div>
+            <div class="dropdown">
+                <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-expanded="false"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
+                  こんにちは、〇〇
+                </font></font></button>
+                <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                  <li><a class="dropdown-item" href="#"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">設定</font></font></a></li>
+                  <li><a class="dropdown-item" href="#"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">メッセージ</font></font></a></li>
+                  <li><a class="dropdown-item" href="#"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">サインアウト</font></font></a></li>
+                </ul>
+              </div>
+        </div>
+    </nav>
+</body>
