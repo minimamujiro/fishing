@@ -9,11 +9,11 @@ import org.springframework.beans.BeanWrapper;
 import org.springframework.beans.BeanWrapperImpl;
 
 public class PasswordEqualsValidator implements ConstraintValidator<PasswordEquals, Object> {
-	
+
 	private String field1;
 	private String field2;
 	private String message;
-	
+
 	/*バリデーターを初期化する*/
 	@Override
 	public void initialize(PasswordEquals annotation) {
@@ -21,11 +21,11 @@ public class PasswordEqualsValidator implements ConstraintValidator<PasswordEqua
 		field2 = "passwordConfirmation";
 		message = annotation.message();
 	}
-	
+
 	/*検証を実行するメソッド
 	 *BeanWrapperをインスタント化する
 	 *PasswordEqualsから取得した値をクラス変数に代入する
-	 *その後変数が空だったらtrueを返す 
+	 *その後変数が空だったらtrueを返す
 	 */
 	@Override
 	public boolean isValid(Object value, ConstraintValidatorContext context) {
@@ -42,5 +42,5 @@ public class PasswordEqualsValidator implements ConstraintValidator<PasswordEqua
 			return false;
 		}
 	}
-	
+
 }

@@ -30,9 +30,9 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
 	@Autowired
 	private FormAuthenticationProvider authenticationProvider;
-	
+
 	private static final String[] URLS = { "/css/**", "/images/**", "/scripts/**", "/h2-console/**" };
-	
+
 	/**
 	 * 認証から除外する
 	 */
@@ -40,9 +40,9 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 	public void configure(WebSecurity web) throws Exception {
 		web.ignoring().antMatchers(URLS);
 	}
-	
+
 	/**
-	 *認証を設定する 
+	 *認証を設定する
 	 */
 	@Override
 	protected void configure(HttpSecurity http) throws Exception {
@@ -54,7 +54,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 		.invalidateHttpSession(true).permitAll().and().csrf()
 		.csrfTokenRepository(CookieCsrfTokenRepository.withHttpOnlyFalse())
 		// form
-		.and().formLogin().loginPage("/login").defaultSuccessUrl("/topics").failureUrl("/login-failure")
+		.and().formLogin().loginPage("/login").defaultSuccessUrl("/").failureUrl("/login-failure")
 		.permitAll();
 		//@formatter:on
 	}
@@ -62,7 +62,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 	protected void configure(AuthenticationManagerBuilder auth) throws Exception {
 		auth.authenticationProvider(authenticationProvider);
 	}
-	
+
 	@Bean
 	PasswordEncoder passwordEncoder() {
 		return new BCryptPasswordEncoder();

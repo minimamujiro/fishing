@@ -8,3 +8,5 @@ spring:
   h2:
     console:
       enabled: true
+image:
+  local: true

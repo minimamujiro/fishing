@@ -27,11 +27,11 @@ import lombok.Data;
 @Data
 public class User extends AbstractEntity implements UserDetails, UserInf {
 	private static final long serialVersionUID = 1L;
-	
+
 	/*列挙型で定数を定義*/
-	public enum Authority {   
+	public enum Authority {
 		ROLE_USER, ROLE_ADMIN
-	};
+	}
 	/*継承した一つ前のコンストラクタを呼び出し*/
 	public User() {
 		super();
@@ -54,20 +54,20 @@ public class User extends AbstractEntity implements UserDetails, UserInf {
 	/*データベースのカラムとマッピング（関連付け）する*/
 	@Column(nullable = false, unique = true)
 	private String username;
-	
+
 	@Column(nullable = false)
 	private String name;
-	
+
 	@Column(nullable = false)
 	private String password;
-	
+
 	@Column(nullable = false)
 	@Enumerated(EnumType.STRING)
 	private Authority authority;
-	
+
 	@Column(nullable = false)
 	private String live;
-	
+
 	/*UserDetailsのgetAuthoritiesを実装する
 	  List付与された権限の文字列を保管する
 	*/
@@ -82,19 +82,19 @@ public class User extends AbstractEntity implements UserDetails, UserInf {
 	public boolean isAccountNonExpired() {
 		return true;
 	}
-	
+
 	/*ユーザーがロックされているかロック解除されているかを判定*/
 	@Override
 	public boolean isAccountNonLocked() {
 		return true;
 	}
-	
+
 	/*ユーザーの資格情報（パスワード）の有効期限が切れているかどうかを*/
 	@Override
 	public boolean isCredentialsNonExpired() {
 		return true;
 	}
-	
+
 	@Override
 	public boolean isEnabled() {
 		return true;

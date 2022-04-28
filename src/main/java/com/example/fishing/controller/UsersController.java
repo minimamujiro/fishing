@@ -23,10 +23,10 @@ public class UsersController {
 
 	@Autowired
 	private PasswordEncoder passwordEncoder;
-	
+
 	@Autowired
 	private UserRepository repository;
-	
+
 	/*user#newのゲットとマッピングする
 	 * モデルに"form"と名づけてUserFormの値を保存する
 	 * */
@@ -46,7 +46,7 @@ public class UsersController {
 		String password =form.getPassword();
 		String passwordConfirmation = form.getPasswordConfirmation();
 		String live = form.getLive();
-		
+
 		if (repository.findByUsername(email) != null) {
 			FieldError fieldError = new FieldError(result.getObjectName(), "email", "そのEメールはすでに使用されています。");
 			result.addError(fieldError);
@@ -59,11 +59,11 @@ public class UsersController {
 		}
 		User entity = new User(email, name, passwordEncoder.encode(password), Authority.ROLE_USER, live);
 		repository.saveAndFlush(entity);
-		
+
 		model.addAttribute("hasMessage", true);
 		model.addAttribute("class", "alert-info");
 		model.addAttribute("message", "ユーザー登録が完了しました。");
-		
+
 		return "layouts/complete";
 		}
 }

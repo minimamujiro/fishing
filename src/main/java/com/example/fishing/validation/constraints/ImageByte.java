@@ -11,22 +11,18 @@ import javax.validation.Payload;
 import javax.validation.ReportAsSingleViolation;
 
 @Documented
-@Constraint(validatedBy = PasswordEqualsValidator.class)
-@Target({ ElementType.TYPE })
+@Constraint(validatedBy = ImageByteValidator.class)
+@Target({ ElementType.FIELD })
 @Retention(RetentionPolicy.RUNTIME)
 @ReportAsSingleViolation
-public @interface PasswordEquals {
+public @interface ImageByte {
 
-	String message() default "{com.example.fishing.validation.constraints.PasswordEquals.message}";
+	String message() default "{com.example.fishing.validation.constraints.Imagesize.message}";
 
 	Class<?>[] groups() default {};
 
 	Class<? extends Payload>[] payload() default {};
 
-	@Target({ ElementType.TYPE })
-	@Retention(RetentionPolicy.RUNTIME)
-	@Documented
-	public @interface List {
-		PasswordEquals[] value();
-	}
+	int max();
+
 }
