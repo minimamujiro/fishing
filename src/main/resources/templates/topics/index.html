@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	layout:decorate="~{layouts/layout}">
+<head>
+<title>Fishing</title>
+</head>
+<body>
+	<div class="topics-index-wrapper" layout:fragment="contents">
+		<div class="container">
+			<div class="row" th:each="topic : ${list}">
+				<div class="col-md-6 mx-auto">
+					<main>
+						<h2 class="author" th:text="${topic.user.name}"></h2>
+						<div class="row row-cols-4">
+							<div class="col">日時：</div>
+							<div class="col">時間：</div>
+							<div class="col">天気</div>
+							<div class="col">潮周り</div>
+						</div>
+						<img src="" th:if="${@environment.getProperty('image.local')}"
+							 th:src="${topic.imageData}" class="image" />
+					    <img src=""
+							th:unless="${@environment.getProperty('image.local')}"
+							th:src="${topic.path}" class="image" />
+						<pre class="description" th:text="${topic.description}"></pre>
+					</main>
+				</div>
+			</div>
+		</div>
+	</div>
+</body>
+</html>

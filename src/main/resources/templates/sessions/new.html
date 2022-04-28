@@ -1,40 +1,31 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org"
-	xmlns:layout="http://www.ultraq.ner.nz/thymeleaf/layout"
-	layout:decorate="~{layouts/layout}">
-<head>
-<title>Fishing</title>
-</head>
-<body>
-	<div layout:fragment="contents">
-		<main class="col-md-9 ml-sm-auto px-md-4 py-4">
-			<div class="bd-example">
-				<form>
-					<div class="row mb-3">
-						<label for="inputEmail3" class="col-sm-2 col-form-label">
-						 <font style="vertical-align: inherit;">
-						 <font style="vertical-align: inherit;">Eメール</font></font></label>
-						<div class="col-sm-10">
-							<input type="email" class="form-control" id="inputEmail3">
-						</div>
-					</div>
-					<div class="row mb-3">
-						<label for="inputPassword3" class="col-sm-2 col-form-label">
-						 <font style="vertical-align: inherit;">
-						 <font style="vertical-align: inherit;">パスワード</font></font></label>
-						<div class="col-sm-10">
-							<input type="password" class="form-control" id="inputPassword3">
-						</div>
-					</div>
-
-
-					<button type="submit" class="btn btn-primary">
-						<font style="vertical-align: inherit;">
-						<font style="vertical-align: inherit;">ログイン</font></font>
-					</button>
-				</form>
-			</div>
-		</main>
-	</div>
-</body>
+<html
+  xmlns:th="http://www.thymeleaf.org"
+  xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+  layout:decorate="~{layouts/layout}">
+  <head>
+    <title>Fishing</title>
+  </head>
+  <body>
+<div class="users-new-wrapper" layout:fragment="contents">
+  <div class="container">
+    <div class="row">
+      <main class="col-md-4 mx-auto">
+        <h1>Log in</h1>
+        <form method="post" th:action="@{/login}">
+          <div class="mb-3">
+            <label for="session_email">Email</label>
+            <input class="form-control" type="text" name="username" id="session_email" />
+          </div>
+          <div class="mb-3">
+            <label for="session_password">Password</label>
+            <input class="form-control" type="password" name="password" id="session_password" />
+          </div>
+          <input type="submit" value="ログイン" class="btn btn-primary" />
+        </form>
+      </main>
+    </div>
+  </div>
+</div>
+  </body>
 </html>

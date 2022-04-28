@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html xmlns:="http://www.thymeleaf.org"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	layout:decorate="~{layouts/layout}">
+<head>
+<title>Fishing</title>
+</head>
+<body>
+	<div layout:fragment="contents">
+		<div class="container">
+			<div class="row">
+				<div class="col-md-6 mx-auto">
+					<h1 class="text-center">記録投稿</h1>
+					<form class="new_topic" id="new_topic" method="post"
+						th:action="@{/topic}" th:object="${form}"
+						enctype="multipart/form-data">
+						<div layout:replace="~{layouts/common::messages}"></div>
+						<input type="hidden" th:field="*{id}" />
+						<div class="mb-3">
+						<label class="form-label text-black" for="topic_dade">日時</label>
+						
+						<div class="mb-3">
+						 <label class="form-label text-black" for="topic_image">写真</label>
+						 <input type="file" class="form-control-file" th:field="*{image}" />
+						 <p th:if="${#fields.hasErrors('image')}" class="error-message" th:errors="*{image}"></p>
+						 </div>
+						 <div class="mb-3">
+							<label class="form-label text-black" for="topic_description">説明</label>
+							<textarea class="form-control" th:field="*{description}"
+								rows="10" th:errorclass="error-field"></textarea>
+							<p th:if="${#fields.hasErrors('description')}"
+								class="error-message" th:errors="*{description}"></p>
+						</div>
+						<input type="submit" value="投稿" class="btn w-100 btn-primary" />
+					</form>
+				</div>
+			</div>
+		</div>
+	</div>
+</body>
+</html>

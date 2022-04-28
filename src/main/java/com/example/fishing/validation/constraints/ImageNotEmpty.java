@@ -11,22 +11,16 @@ import javax.validation.Payload;
 import javax.validation.ReportAsSingleViolation;
 
 @Documented
-@Constraint(validatedBy = PasswordEqualsValidator.class)
-@Target({ ElementType.TYPE })
+@Constraint(validatedBy = ImageNotEmptyValidator.class)
+@Target({ ElementType.FIELD })
 @Retention(RetentionPolicy.RUNTIME)
 @ReportAsSingleViolation
-public @interface PasswordEquals {
+public @interface ImageNotEmpty {
 
-	String message() default "{com.example.fishing.validation.constraints.PasswordEquals.message}";
+	String message() default "{com.example.fishing.validation.constraints.ImageNotEmpty.message}";
 
 	Class<?>[] groups() default {};
 
 	Class<? extends Payload>[] payload() default {};
 
-	@Target({ ElementType.TYPE })
-	@Retention(RetentionPolicy.RUNTIME)
-	@Documented
-	public @interface List {
-		PasswordEquals[] value();
-	}
 }
