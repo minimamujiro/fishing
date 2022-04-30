@@ -12,11 +12,11 @@
 				<div class="col-md-6 mx-auto">
 					<main>
 						<h2 class="author" th:text="${topic.user.name}"></h2>
-						<div class="row row-cols-4">
-							<div class="col">日時：</div>
-							<div class="col">時間：</div>
-							<div class="col">天気</div>
-							<div class="col">潮周り</div>
+						<div class="row row-cols-auto">
+							<div class="col" th:text="|日付：${#dates.format(topic.date, 'yyyy年MM月dd日')}|">日時：</div>
+							<div class="col" th:text="|時間：${#temporals.format(topic.start_time, 'HH時mm分')}〜${#temporals.format(topic.end_time, 'HH時mm分')}|">時間：</div>
+							<div class="col" th:text="|天気：${topic.weather}|">天気</div>
+							<div class="col" th:text="|潮汐：${topic.tide_level}|">潮周り</div>
 						</div>
 						<img src="" th:if="${@environment.getProperty('image.local')}"
 							 th:src="${topic.imageData}" class="image" />
