@@ -7,12 +7,12 @@
     <title>Fishing</title>
   </head>
   <body>
-  <div class="users-new-wrapper" layout:fragment="contents">
+  <div layout:fragment="contents">
   <div class="container">
     <div class="row">
       <main class="col-md-4 mx-auto">
-        <form method="get" th:action="@{/}">
-          <input type="submit" value="ログインする" class="btn w-100 btn-outline-light" />
+        <form method="get" th:action="@{/login}">
+          <input type="submit" value="ログインする" class="btn btn-primary" />
         </form>
       </main>
     </div>  

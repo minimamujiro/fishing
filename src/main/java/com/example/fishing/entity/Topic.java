@@ -1,6 +1,8 @@
 package com.example.fishing.entity;
 
 import java.io.Serializable;
+import java.time.LocalTime;
+import java.util.Date;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -11,8 +13,6 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
-
-import org.joda.time.DateTime;
 
 import lombok.Data;
 
@@ -33,20 +33,29 @@ public class Topic extends AbstractEntity implements Serializable {
 	@Column(nullable = false)
 	private String path;
 	/*説明カラム*/
-	@Column(nullable = false)
+	@Column(nullable = false, length = 1000)
 	private String description;
-	/*緯度カラム*/
+	/*日にちのカラム*/
 	@Column(nullable = false)
+	private Date date;
+	/*天気のカラム*/
+	@Column(nullable = false)
+	private String weather;
+	/*潮汐*/
+	@Column(nullable = false)
+	private String tide_level;
+	/*緯度カラム*/
+	@Column
 	private Double lattitude;
 	/*経度カラム*/
-	@Column(nullable = false)
+	@Column
 	private Double longitude;
 	/*開始時間*/
 	@Column(nullable = false)
-	private DateTime start_time;
+	private LocalTime start_time;
 	/*終了時間*/
 	@Column(nullable = false)
-	private DateTime end_time;
+	private LocalTime end_time;
 
 	@ManyToOne
 	@JoinColumn(name = "userId", insertable = false, updatable = false)

@@ -10,20 +10,56 @@
 		<div class="container">
 			<div class="row">
 				<div class="col-md-6 mx-auto">
+				　<div class="mt-3 mb-3">
 					<h1 class="text-center">記録投稿</h1>
+				  </div>
+					<!--フォーム操作の内容を記述　今回は内容をnew_topicと名づけてポストで送信している-->
 					<form class="new_topic" id="new_topic" method="post"
 						th:action="@{/topic}" th:object="${form}"
 						enctype="multipart/form-data">
+						<!-- バリデーションを行う -->
 						<div layout:replace="~{layouts/common::messages}"></div>
 						<input type="hidden" th:field="*{id}" />
+						<!-- テキストフォームで内容を入力 -->
+						<!-- 日付 --> 
 						<div class="mb-3">
-						<label class="form-label text-black" for="topic_dade">日時</label>
-						
+						<label class="form-label text-black" for="topic_dade">日付</label>
+						<input type="date" class="form-control-file" th:field="*{date}" />
+						<p th:if="${#fields.hasErrors('date')}" class="error-message" th:errors="*{date}"></p>
+						</div>
+						<!-- 時間 -->
+						<div class="mb-3">
+						<label class="form-label text-black" for="topic_time">時間</label>
+						<input type="time" class="form-control-file" th:field="*{start_time}" />
+						<p th:if="${#fields.hasErrors('start_time')}" class="error-message" th:errors="*{start_time}"></p>
+						<p class="d-inline"> 〜 </p>
+						<input type="time" class="form-control-file" th:field="*{end_time}" />
+						<p th:if="${#fields.hasErrors('end_time')}" class="error-message" th:errors="*{end_time}"></p>
+						</div>
+						<!-- 潮汐 --> 
+						<div class="mb-3">
+						<label class="form-label text-black" for="topic_tide_level">潮汐</label>
+						<select class="form-control-file" th:field="*{tide_level}">
+						  <option value="大潮">大潮</option>
+						  <option value="中潮">中潮</option>
+						  <option value="小潮">小潮</option>
+						  <option value="若潮">若潮</option>
+						  <option value="長潮">長潮</option>
+						</select>
+						</div>
+						<!-- 天気 -->
+						<div class="mb-3">
+						<label class="form-label text-black" for="topic_weather">天気</label>
+						<input type="text" class="form-control-file" th:field="*{weather}" />
+						<p th:if="${#fields.hasErrors('weather')}" class="error-message" th:errors="*{weather}"></p>
+						</div>
+						<!-- 写真 -->
 						<div class="mb-3">
 						 <label class="form-label text-black" for="topic_image">写真</label>
 						 <input type="file" class="form-control-file" th:field="*{image}" />
 						 <p th:if="${#fields.hasErrors('image')}" class="error-message" th:errors="*{image}"></p>
 						 </div>
+						 <!-- 説明 -->
 						 <div class="mb-3">
 							<label class="form-label text-black" for="topic_description">説明</label>
 							<textarea class="form-control" th:field="*{description}"

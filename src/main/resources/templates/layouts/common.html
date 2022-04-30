@@ -7,7 +7,7 @@
 	<nav class="navbar navbar-light bg-light p-3" layout:fragment="nav">
 
 		<div class="d-flex col-12 col-md-3 col-lg-2 mb-2 mb-lg-0 flex-wrap flex-md-nowrap justify-content-between">
-			<a class="navbar-brand" href="#">Fishing Log</a>
+			<a class="navbar-brand" href="/">Fishing Log</a>
 			<button class="navbar-toggler d-md-none collapsed mb-3" type="button" data-toggle="collapse" data-target="#sidebar" aria-controls="sidebar" aria-expanded="false" aria-label="Toggle navigation">
              <span class="navbar-toggler-icon"></span>
             </button>
@@ -16,14 +16,15 @@
 			<input class="form-control form-control-dark" type="text"
 				placeholder="探す" aria-label="探す">
 		</div>
-		<div
-			class="col-12 col-md-5 col-lg-8 d-flex align-items-center justify-content-md-end mt-3 mt-md-0">
+		<div class="col-12 col-md-5 col-lg-8 d-flex align-items-center justify-content-md-end mt-3 mt-md-0">
 			<div class="btn-group">
+			   <th:block sec:authorize="isAuthenticated()">
 				<button type="button" class="btn btn-primary dropdown-toggle"
-					data-bs-toggle="dropdown" aria-expanded="false">こんにちは、〇〇さん</button>
+					data-bs-toggle="dropdown" aria-expanded="false">こんにちは、〇〇</button>
 				<ul class="dropdown-menu">
 					<li><a class="dropdown-item" th:href="@{/logout}" data-method="post" th:data-_csrf="${_csrf.token}">ログアウト</a></li>
 				</ul>
+				</th:block>
 			</div>
 		</div>
 

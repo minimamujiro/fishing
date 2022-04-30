@@ -9,5 +9,4 @@ import com.example.fishing.entity.Topic;
 public interface TopicRepository extends JpaRepository<Topic, Long> {
 
 	Iterable<Topic> findAllByOrderByUpdatedAtDesc();
-
 }
