@@ -13,16 +13,23 @@
 					<main>
 						<h2 class="author" th:text="${topic.user.name}"></h2>
 						<div class="row row-cols-auto">
-							<div class="col" th:text="|日付：${#dates.format(topic.date, 'yyyy年MM月dd日')}|">日時：</div>
+							<div class="col"
+								th:text="|日付：${#dates.format(topic.date, 'yyyy年MM月dd日')}|">日時：</div>
 							<div class="col" th:text="|時間：${#temporals.format(topic.start_time, 'HH時mm分')}〜${#temporals.format(topic.end_time, 'HH時mm分')}|">時間：</div>
 							<div class="col" th:text="|天気：${topic.weather}|">天気</div>
 							<div class="col" th:text="|潮汐：${topic.tide_level}|">潮周り</div>
 						</div>
-						<img src="" th:if="${@environment.getProperty('image.local')}"
-							 th:src="${topic.imageData}" class="image" />
-					    <img src=""
-							th:unless="${@environment.getProperty('image.local')}"
-							th:src="${topic.path}" class="image" />
+						<img src="" th:if="${@environment.getProperty('image.local')}" th:src="${topic.imageData}" class="image" />
+						<img src="" th:unless="${@environment.getProperty('image.local')}" th:src="${topic.path}" class="image" />
+						<div class="icons">
+							<a th:if="${topic.favorite != null}" rel="nofollow" class="icon convert" data-method="delete" href="/favorite?topic_id=1" th:href="@{'/favorite'}" th:data-topic_id="${topic.id}" th:data-_csrf="${_csrf.token}">
+							<img class="favorite-on" src="/images/icons/heart.png" th:src="@{/images/icons/heart.png}" />
+							</a>
+							<a th:if="${topic.favorite == null}" rel="nofollow" class="icon convert" data-method="post" href="/favorite?topic_id=1" th:href="@{'/favorite'}" th:data-topic_id="${topic.id}" th:data-_csrf="${_csrf.token}">
+							<img src="/images/icons/heart-black.png" th:src="@{/images/icons/heart-black.png}" />
+							</a>
+							<span class="count" th:text="${#lists.size(topic.favorites)}">0</span>
+						</div>
 						<pre class="description" th:text="${topic.description}"></pre>
 					</main>
 				</div>

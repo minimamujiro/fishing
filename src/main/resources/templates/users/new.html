@@ -14,23 +14,23 @@
 			 <div layout:replace="~{layouts/common::messages}"></div>
 				<div class="col-md-6">
 					<label for="inputname" class="form-label">名前</label> 
-					<input type="text" class="form-control" th:field="*{name}" /><p th:if="${#fields.hasErrors('name')}" class="error-message" th:errors="*{name}"></p>
+					<input type="text" class="form-control" th:field="*{name}"th:placeholder="#{users.new.name}" /><p th:if="${#fields.hasErrors('name')}" class="error-message" th:errors="*{name}"></p>
 				</div>
 				<div class="col-md-6">
-					<label for="inputEmail" class="form-label">Eメール</label> 
-					<input type="text" class="form-control" th:field="*{email}" /><p th:if="${#fields.hasErrors('email')}" class="error-message" th:errors="*{email}"></p>
+					<label for="inputEmail" class="form-label">Eメール</label>
+					<input type="text" class="form-control" th:field="*{email}" th:placeholder="#{users.new.email.placeholder}"/><p th:if="${#fields.hasErrors('email')}" class="error-message" th:errors="*{email}"></p>
 				</div>
 				<div class="col-12">
 					<label for="inputpassword" class="form-label">パスワード</label> 
-					 <input type="password" class="form-control" th:field="*{password}" /><p th:if="${#fields.hasErrors('password')}" class="error-message" th:errors="*{password}"></p>
+					 <input type="password" class="form-control" th:field="*{password}" th:placeholder="#{users.new.password.placeholder}"/><p th:if="${#fields.hasErrors('password')}" class="error-message" th:errors="*{password}"></p>
 				</div>
 				<div class="col-12">
 					<label for="input_password_confirmation" class="form-label">パスワード（確認）</label> 
-					<input type="password" class="form-control" th:field="*{passwordConfirmation}" /><p th:if="${#fields.hasErrors('passwordConfirmation')}" class="error-message" th:errors="*{passwordConfirmation}"></p>
+					<input type="password" class="form-control" th:field="*{passwordConfirmation}" th:placeholder="#{users.new.password.placeholder}"/><p th:if="${#fields.hasErrors('passwordConfirmation')}" class="error-message" th:errors="*{passwordConfirmation}"></p>
 				</div>
 				<div class="col-12">
 					<label for="inputCity" class="form-label">都道府県</label>
-					 <input type="text" class="form-control" placeholder="千葉県" th:field="*{live}" /><p th:if="${#fields.hasErrors('live')}" class="error-message" th:errors="*{live}"></p>
+					 <input type="text" class="form-control" th:placeholder="#{users.new.live.placeholder}" th:field="*{live}" /><p th:if="${#fields.hasErrors('live')}" class="error-message" th:errors="*{live}"></p>
 				</div>
 
 				<div class="col-12">
