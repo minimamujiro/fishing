@@ -2,6 +2,7 @@ package com.example.fishing.form;
 
 import java.time.LocalTime;
 import java.util.Date;
+import java.util.List;
 
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.Size;
@@ -53,5 +54,9 @@ public class TopicForm {
 	private LocalTime end_time;
 
 	private UserForm user;
+	
+	private List<FavoriteForm> favorites;
+	
+	private FavoriteForm favorite;
 
 }

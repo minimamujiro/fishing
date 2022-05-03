@@ -20,9 +20,9 @@
 			<div class="btn-group">
 			   <th:block sec:authorize="isAuthenticated()">
 				<button type="button" class="btn btn-primary dropdown-toggle"
-					data-bs-toggle="dropdown" aria-expanded="false">こんにちは、〇〇</button>
+					data-bs-toggle="dropdown" aria-expanded="false">こんにちは、</button>
 				<ul class="dropdown-menu">
-					<li><a class="dropdown-item" th:href="@{/logout}" data-method="post" th:data-_csrf="${_csrf.token}">ログアウト</a></li>
+					<li><a class="dropdown-item convert" th:href="@{/logout}" data-method="post" th:data-_csrf="${_csrf.token}">ログアウト</a></li>
 				</ul>
 				</th:block>
 			</div>

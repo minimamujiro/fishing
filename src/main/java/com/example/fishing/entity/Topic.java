@@ -3,6 +3,7 @@ package com.example.fishing.entity;
 import java.io.Serializable;
 import java.time.LocalTime;
 import java.util.Date;
+import java.util.List;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -10,7 +11,8 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 
@@ -57,7 +59,11 @@ public class Topic extends AbstractEntity implements Serializable {
 	@Column(nullable = false)
 	private LocalTime end_time;
 
-	@ManyToOne
+	@OneToOne
 	@JoinColumn(name = "userId", insertable = false, updatable = false)
 	private User user;
+	
+	@OneToMany
+	@JoinColumn(name = "topicId", insertable = false, updatable = false)
+	private List<Favorite> favorites;
 }
