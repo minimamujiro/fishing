@@ -27,15 +27,16 @@ import com.example.fishing.repository.FavoriteRepository;
 
 @Controller
 public class FavoritesController {
-	
+
 	@Autowired
 	private MessageSource messageSource;
-	
+
 	@Autowired
 	private FavoriteRepository repository;
-	
+
 	@Autowired
 	private TopicsController topicsController;
+
 	/*お気に入りへのアクセス*/
 	@GetMapping(path = "/favorites")
 	public String index(Principal principal, Model model) throws IOException {
@@ -49,12 +50,14 @@ public class FavoritesController {
 			list.add(form);
 		}
 		model.addAttribute("list", list);
-		
+
 		return "topics/index";
 	}
+
 	/*お気に入り登録*/
 	@RequestMapping(value = "/favorite", method = RequestMethod.POST)
-	public String create(Principal principal, @RequestParam("topic_id") long topicId, RedirectAttributes redirAttrs, Locale locale) {
+	public String create(Principal principal, @RequestParam("topic_id") long topicId, RedirectAttributes redirAttrs,
+			Locale locale) {
 		Authentication authentication = (Authentication) principal;
 		UserInf user = (UserInf) authentication.getPrincipal();
 		Long userId = user.getUserId();
@@ -64,30 +67,34 @@ public class FavoritesController {
 			entity.setUserId(userId);
 			entity.setTopicId(topicId);
 			repository.saveAndFlush(entity);
-			
+
 			redirAttrs.addFlashAttribute("hasMessage", true);
 			redirAttrs.addFlashAttribute("class", "alert-info");
-			redirAttrs.addFlashAttribute("message", messageSource.getMessage("favorites.create.flash", new String[] {}, locale));
+			redirAttrs.addFlashAttribute("message",
+					messageSource.getMessage("favorites.create.flash", new String[] {}, locale));
 		}
-		
+
 		return "redirect:/topics";
-		
+
 	}
+
 	/*お気に入りの削除*/
 	@RequestMapping(value = "/favorite", method = RequestMethod.DELETE)
 	@Transactional
-	public String destroy(Principal principal, @RequestParam("topic_id") long topicId, RedirectAttributes redirAttrs, Locale locale) {
+	public String destroy(Principal principal, @RequestParam("topic_id") long topicId, RedirectAttributes redirAttrs,
+			Locale locale) {
 		Authentication authentication = (Authentication) principal;
 		UserInf user = (UserInf) authentication.getPrincipal();
 		Long userId = user.getUserId();
 		List<Favorite> results = repository.findByUserIdAndTopicId(userId, topicId);
 		if (results.size() == 1) {
 			repository.deleteByUserIdAndTopicId(user.getUserId(), topicId);
-			
+
 			redirAttrs.addFlashAttribute("hasMessage", true);
 			redirAttrs.addFlashAttribute("class", "alert-info");
-			redirAttrs.addFlashAttribute("message", messageSource.getMessage("favorites.destroy.flash", new String[] {}, locale));
-			
+			redirAttrs.addFlashAttribute("message",
+					messageSource.getMessage("favorites.destroy.flash", new String[] {}, locale));
+
 		}
 		return "redirect:/topics";
 	}

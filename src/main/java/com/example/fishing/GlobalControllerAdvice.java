@@ -14,23 +14,23 @@ import org.springframework.web.bind.annotation.ExceptionHandler;
 @ControllerAdvice
 @Component
 public class GlobalControllerAdvice {
-	
+
 	@Autowired
 	private MessageSource messageSource;
-	
+
 	protected static Logger log = LoggerFactory.getLogger(GlobalControllerAdvice.class);
-	
+
 	@ExceptionHandler(Exception.class)
 	public String exceptionHandler(Exception e, Model model, Locale locale) {
-		
+
 		log.error(e.getMessage(), e);
-		
+
 		model.addAttribute("hasMessage", true);
 		model.addAttribute("class", "alert-danger");
 		model.addAttribute("message", messageSource.getMessage("common.1", new String[] {}, locale));
-		
+
 		return "sessions/new";
-				
+
 	}
 
 }
