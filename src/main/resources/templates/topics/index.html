@@ -11,14 +11,17 @@
 			<div class="row" th:each="topic : ${list}">
 				<div class="col-md-6 mx-auto">
 					<main>
+					    <!-- 投稿者名 -->
 						<h2 class="author" th:text="${topic.user.name}"></h2>
 						<div class="row row-cols-auto">
+						<!-- 日時、時間、天気、潮汐 -->
 							<div class="col"
 								th:text="|日付：${#dates.format(topic.date, 'yyyy年MM月dd日')}|">日時：</div>
 							<div class="col" th:text="|時間：${#temporals.format(topic.start_time, 'HH時mm分')}〜${#temporals.format(topic.end_time, 'HH時mm分')}|">時間：</div>
 							<div class="col" th:text="|天気：${topic.weather}|">天気</div>
 							<div class="col" th:text="|潮汐：${topic.tide_level}|">潮周り</div>
 						</div>
+						<!-- お気に入り処理 -->
 						<img src="" th:if="${@environment.getProperty('image.local')}" th:src="${topic.imageData}" class="image" />
 						<img src="" th:unless="${@environment.getProperty('image.local')}" th:src="${topic.path}" class="image" />
 						<div class="icons">
@@ -29,8 +32,18 @@
 							<img src="/images/icons/heart-black.png" th:src="@{/images/icons/heart-black.png}" />
 							</a>
 							<span class="count" th:text="${#lists.size(topic.favorites)}">0</span>
+						<!-- コメント処理 -->	
+						<a href="/topics/1/comments/new" th:href="@{'/topics/{id}/comments/new'(id=${topic.id})}" class="icon" th:data-_csrf="${_csrf.token}">
+						<img src="/images/icons/comment.png" th:src="@{/images/icons/comment.png}" />
+						</a>
 						</div>
 						<pre class="description" th:text="${topic.description}"></pre>
+						<div class="comments">
+						   <h3 class="text-center" th:text="#{topics.index.comment}">コメント</h3>
+						   <ul th:each="comment : ${topic.comments}">
+						   <li><pre class="description" th:text="${comment.description}"></pre></li>
+						   </ul>
+						</div>
 					</main>
 				</div>
 			</div>
