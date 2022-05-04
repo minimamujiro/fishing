@@ -34,9 +34,11 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
+import com.example.fishing.entity.Comment;
 import com.example.fishing.entity.Favorite;
 import com.example.fishing.entity.Topic;
 import com.example.fishing.entity.UserInf;
+import com.example.fishing.form.CommentForm;
 import com.example.fishing.form.FavoriteForm;
 import com.example.fishing.form.TopicForm;
 import com.example.fishing.form.UserForm;
@@ -84,6 +86,7 @@ public class TopicsController {
         modelMapper.getConfiguration().setAmbiguityIgnored(true);
         modelMapper.typeMap(Topic.class, TopicForm.class).addMappings(mapper -> mapper.skip(TopicForm::setUser));
         modelMapper.typeMap(Topic.class, TopicForm.class).addMappings(mapper -> mapper.skip(TopicForm::setFavorites));
+        modelMapper.typeMap(Topic.class, TopicForm.class).addMappings(mapper -> mapper.skip(TopicForm::setComments));
         modelMapper.typeMap(Favorite.class, FavoriteForm.class).addMappings(mapper -> mapper.skip(FavoriteForm::setTopic));
         boolean isImageLocal = false;
         if (imageLocal != null) {
@@ -121,6 +124,14 @@ public class TopicsController {
         	}
         }
         form.setFavorites(favorites);
+        
+        List<CommentForm> comments = new ArrayList<CommentForm>();
+        
+        for (Comment commentEntity : entity.getComments()) {
+        	CommentForm comment = modelMapper.map(commentEntity, CommentForm.class);
+        	comments.add(comment);
+        }
+        form.setComments(comments);
 
         return form;
     }
