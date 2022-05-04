@@ -9,4 +9,4 @@ spring:
       enabled: true
 debug: true
 image:
-  local: true
+  local: false
