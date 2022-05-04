@@ -15,7 +15,7 @@ public class AbstractEntity {
 	@Column(name = "created_at") /*DBのカラム名指定*/
 	private Date createdAt;      /*作成時間の変数*/
 
-	@Column(name = "update_at")
+	@Column(name = "updated_at")
 	private Date updatedAt;     /*更新時間の変数*/
 
 	@PrePersist  /*DBにINSERTする前に呼び出されるメソッドであることを示している*/

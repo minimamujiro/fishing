@@ -1,6 +1,6 @@
 # fishing  
 ### 今回の更新内容　  
-・S3への登録  
+・DBをpostgresに移行  
 ・  
 ・  
 ・  

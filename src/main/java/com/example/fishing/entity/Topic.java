@@ -48,7 +48,7 @@ public class Topic extends AbstractEntity implements Serializable {
 	private String tide_level;
 	/*緯度カラム*/
 	@Column
-	private Double lattitude;
+	private Double latitude;
 	/*経度カラム*/
 	@Column
 	private Double longitude;

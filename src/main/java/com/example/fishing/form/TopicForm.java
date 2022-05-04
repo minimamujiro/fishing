@@ -34,7 +34,7 @@ public class TopicForm {
 	@Size(max = 1000)
 	private String description;
 	
-	private Double lattitude;
+	private Double latitude;
 
 	private Double longitude;
 	
