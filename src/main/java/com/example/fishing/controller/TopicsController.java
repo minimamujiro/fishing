@@ -163,13 +163,13 @@ public class TopicsController {
         }
         return mimeType;
     }
-
+    /*新規投稿作成ページに移動*/
     @GetMapping(path = "/topics/new")
     public String newTopic(Model model) {
         model.addAttribute("form", new TopicForm());
         return "topics/new";
     }
-
+    /*投稿ボタンを押すと起動*/
     @RequestMapping(value = "/topic", method = RequestMethod.POST)
     public String create(Principal principal, @Validated @ModelAttribute("form") TopicForm form, BindingResult result,
             Model model, @RequestParam MultipartFile image, RedirectAttributes redirAttrs, Locale locale)

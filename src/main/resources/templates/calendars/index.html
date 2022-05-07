@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html 
+    xmlns:th="http://www.thymeleaf.org"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	layout:decorate="~{layouts/layout}">
+<head>
+<title>Fishing</title>
+</head>
+<body>
+	<div class="col-md-9 ml-sm-auto col-lg-10 px-md-4 py-4" layout:fragment="contents">
+	 <main>
+		<div id='calendar'></div>
+	    <link rel='stylesheet' href="https://cdn.jsdelivr.net/npm/fullcalendar@5.11.0/main.min.css" />
+		<script src="https://cdn.jsdelivr.net/npm/fullcalendar@5.11.0/main.min.js"></script>
+		<script type="text/javascript">
+			document.addEventListener('DOMContentLoaded', function() {
+				var calendarEl = document.getElementById('calendar');
+				var calendar = new FullCalendar.Calendar(calendarEl, {
+					initialView: 'dayGridMonth',
+					locale: 'ja',
+					events: {url: '/events/all'}
+				});
+				calendar.render();
+			});
+		</script>
+	</main>
+  </div>
+</body>
+</html>
