@@ -7,9 +7,9 @@
 </head>
 <body>
 	<div class="topics-index-wrapper" layout:fragment="contents">
-		<div class="container">
-			<div class="row" th:each="topic : ${list}">
-				<div class="col-md-6 mx-auto">
+		<div class="col-md-9 ml-sm-auto col-lg-10 px-md-4 py-4">
+			<div class="container col-md-6 mx-auto" th:each="topic : ${list}">
+				<a th:id="${topic.id}"></a>
 					<main>
 					    <!-- 投稿者名 -->
 						<h2 class="author" th:text="${topic.user.name}"></h2>
