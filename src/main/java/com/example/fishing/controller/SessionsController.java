@@ -31,10 +31,10 @@ public class SessionsController {
 	}
 	/*ログアウト時に動く*/
 	@GetMapping(path = "/logout-complete")
-	public String logoutComplete(Model model, Locale locale) {
+	public String logoutComplete(Model model, Locale local) {
 		model.addAttribute("hasMessage", true);
 		model.addAttribute("class", "alert-info");
-		model.addAttribute("message", messageSource.getMessage("sessions.logoutComplete.flash", new String[] {}, locale));
+		model.addAttribute("message", messageSource.getMessage("sessions.logoutComplete.flash", new String[] {}, local));
 
 		return "pages/index";
 	}

@@ -7,6 +7,25 @@
 </head>
 <body>
 	<div class="topics-index-wrapper" layout:fragment="contents">
+	 <script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>
+	 <script defer th:src="|https://maps.googleapis.com/maps/api/js?key=${@environment.getProperty('googlemap.key')}&callback=initMap|"></script>
+	 <style type="text/css">
+	 .map {
+	     height: 100%;
+	     }
+	     </style>
+	     <script th:inline="javascript">
+	     function initMap() {
+	    	 /*[# th:each="topic : ${list}"]*/
+	    	 /*[# th:if="${topic.latitude != null and topic.longitude != null}"]*/
+	    	 new google.maps.Map(document.getElementById("map[[${topic.id}]]"), {
+	    		 center: { lat: [[${topic.latitude}]], lng: [[${topic.longitude}]] },
+	    		 zoom: 16,
+	    	 });
+	    	 /*[/]*/
+	    	 /*[/]*/
+	     }
+	     </script>
 		<div class="col-md-9 ml-sm-auto col-lg-10 px-md-4 py-4">
 			<div class="container col-md-6 mx-auto" th:each="topic : ${list}">
 				<a th:id="${topic.id}"></a>
@@ -38,6 +57,9 @@
 						</a>
 						</div>
 						<pre class="description" th:text="${topic.description}"></pre>
+						<div style="height: 320px" th:if="${topic.latitude != null and topic.longitude != null}">
+						   <div class="map" th:id="|map${topic.id}|"></div>
+						</div>
 						<div class="comments">
 						   <h3 class="text-center" th:text="#{topics.index.comment}">コメント</h3>
 						   <ul th:each="comment : ${topic.comments}">
