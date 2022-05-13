@@ -7,25 +7,34 @@
     <title>Fishing</title>
   </head>
   <body>
-<div class="users-new-wrapper" layout:fragment="contents">
-  <div class="container">
+  
+<div layout:fragment="contents">
+ <main class="col-md-10 ml-sm-auto px-md-4 py-4 users-wrapper-session">
     <div class="row">
-      <main class="col-md-4 mx-auto">
-        <h1>Log in</h1>
+        <h1 style="text-align:center">Log in</h1>
         <form method="post" th:action="@{/login}">
-          <div class="mb-3">
+          <div class="row mb-3 justify-content-center">
+           <div class="col-4">
             <label for="session_email">Email</label>
             <input class="form-control" type="text" name="username" id="session_email" />
           </div>
-          <div class="mb-3">
+          </div>
+          <div class="row mb-3 justify-content-center">
+           <div class="col-4">
             <label for="session_password">Password</label>
             <input class="form-control" type="password" name="password" id="session_password" />
           </div>
+          </div>
+          <div class="row mb-3 justify-content-center">
+           <div class="col-4">
           <input type="submit" value="ログイン" class="btn btn-primary" />
+       </div>
+       </div>
         </form>
-      </main>
     </div>
-  </div>
+    <footer>
+    </footer>
+    </main>
 </div>
   </body>
 </html>

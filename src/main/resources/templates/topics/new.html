@@ -6,7 +6,7 @@
 <title>Fishing</title>
 </head>
 <body>
-	<div class="container col-md-6 mx-auto" layout:fragment="contents">
+	<div class="col-md-9 ml-sm-auto col-lg-10 px-md-4 py-4 users-wrapper" layout:fragment="contents">
 				　<div class="mt-3 mb-3">
 					<h1 class="text-center">記録投稿</h1>
 				  </div>
@@ -19,13 +19,16 @@
 						<input type="hidden" th:field="*{id}" />
 						<!-- テキストフォームで内容を入力 -->
 						<!-- 日付 --> 
-						<div class="mb-3">
-						<label class="form-label text-black" for="topic_dade">日付</label>
-						<input type="date" class="form-control-file" th:field="*{date}" />
-						<p th:if="${#fields.hasErrors('date')}" class="error-message" th:errors="*{date}"></p>
+						<div class="row justify-content-center mb-3">
+						 <div class="col-4">
+						  <label class="form-label text-black" for="topic_dade">日付</label>
+						  <input type="date" class="form-control-file" th:field="*{date}" />
+						 <p th:if="${#fields.hasErrors('date')}" class="error-message" th:errors="*{date}"></p>
+						 </div>
 						</div>
 						<!-- 時間 -->
-						<div class="mb-3">
+						<div class="row justify-content-center mb-3">
+						 <div class="col-4">
 						<label class="form-label text-black" for="topic_time">時間</label>
 						<input type="time" class="form-control-file" th:field="*{start_time}" />
 						<p th:if="${#fields.hasErrors('start_time')}" class="error-message" th:errors="*{start_time}"></p>
@@ -33,8 +36,10 @@
 						<input type="time" class="form-control-file" th:field="*{end_time}" />
 						<p th:if="${#fields.hasErrors('end_time')}" class="error-message" th:errors="*{end_time}"></p>
 						</div>
+						</div>
 						<!-- 潮汐 --> 
-						<div class="mb-3">
+						<div class="row justify-content-center mb-3">
+						 <div class="col-4">
 						<label class="form-label text-black" for="topic_tide_level">潮汐</label>
 						<select class="form-control-file" th:field="*{tide_level}">
 						  <option value="大潮">大潮</option>
@@ -44,27 +49,38 @@
 						  <option value="長潮">長潮</option>
 						</select>
 						</div>
+						</div>
 						<!-- 天気 -->
-						<div class="mb-3">
+						<div class="row justify-content-center mb-3">
+						 <div class="col-4">
 						<label class="form-label text-black" for="topic_weather">天気</label>
 						<input type="text" class="form-control-file" th:field="*{weather}" />
 						<p th:if="${#fields.hasErrors('weather')}" class="error-message" th:errors="*{weather}"></p>
 						</div>
+						</div>
 						<!-- 写真 -->
-						<div class="mb-3">
+						<div class="row justify-content-center mb-3">
+						 <div class="col-4">
 						 <label class="form-label text-black" for="topic_image">写真</label>
 						 <input type="file" class="form-control-file" th:field="*{image}" />
 						 <p th:if="${#fields.hasErrors('image')}" class="error-message" th:errors="*{image}"></p>
 						 </div>
+						 </div>
 						 <!-- 説明 -->
-						 <div class="mb-3">
+						 <div class="row justify-content-center mb-3">
+						 <div class="col-4">
 							<label class="form-label text-black" for="topic_description">説明</label>
 							<textarea class="form-control" th:field="*{description}"
 								rows="10" th:errorclass="error-field"></textarea>
 							<p th:if="${#fields.hasErrors('description')}"
 								class="error-message" th:errors="*{description}"></p>
 						</div>
+						</div>
+						<div class="row justify-content-center mb-3">
+						 <div class="col-4">
 						<input type="submit" value="投稿" class="btn w-100 btn-primary" />
+						</div>
+						</div>
 					</form>
 				</div>
 			</div>

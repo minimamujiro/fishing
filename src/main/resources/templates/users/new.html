@@ -7,34 +7,53 @@
 </head>
 <body>
 	<div layout:fragment="contents">
-	  <main class="col-md-9 ml-sm-auto px-md-4 py-4">
+	  <main class="col-md-10 ml-sm-auto px-md-4 py-4 users-wrapper">
+		<div class="mt-3 mb-3">
 		<h1 class="text-center">新規登録</h1>
+		</div>
 		<div class="bd-example">
-			<form class="row g-3" method="post" th:action="@{/user}" th:object="${form}">
+			<form method="post" th:action="@{/user}" th:object="${form}">
 			 <div layout:replace="~{layouts/common::messages}"></div>
-				<div class="col-md-6">
+			 
+				<div class="row justify-content-center mb-3">
+				  <div class="col-4">
 					<label for="inputname" class="form-label">名前</label> 
 					<input type="text" class="form-control" th:field="*{name}"th:placeholder="#{users.new.name}" /><p th:if="${#fields.hasErrors('name')}" class="error-message" th:errors="*{name}"></p>
 				</div>
-				<div class="col-md-6">
+			 </div>
+				
+				<div class="row justify-content-center mb-3">
+				   <div class="col-4">
 					<label for="inputEmail" class="form-label">Eメール</label>
 					<input type="text" class="form-control" th:field="*{email}" th:placeholder="#{users.new.email.placeholder}"/><p th:if="${#fields.hasErrors('email')}" class="error-message" th:errors="*{email}"></p>
 				</div>
-				<div class="col-12">
+				</div>
+				
+				<div class="row justify-content-center mb-3">
+					<div class="col-4">
 					<label for="inputpassword" class="form-label">パスワード</label> 
 					 <input type="password" class="form-control" th:field="*{password}" th:placeholder="#{users.new.password.placeholder}"/><p th:if="${#fields.hasErrors('password')}" class="error-message" th:errors="*{password}"></p>
 				</div>
-				<div class="col-12">
+				</div>
+				
+				<div class="row justify-content-center mb-3">
+					<div class="col-4">
 					<label for="input_password_confirmation" class="form-label">パスワード（確認）</label> 
 					<input type="password" class="form-control" th:field="*{passwordConfirmation}" th:placeholder="#{users.new.password.placeholder}"/><p th:if="${#fields.hasErrors('passwordConfirmation')}" class="error-message" th:errors="*{passwordConfirmation}"></p>
 				</div>
-				<div class="col-12">
+				</div>
+				
+				<div class="row justify-content-center mb-3">
+					<div class="col-4">
 					<label for="inputCity" class="form-label">都道府県</label>
 					 <input type="text" class="form-control" th:placeholder="#{users.new.live.placeholder}" th:field="*{live}" /><p th:if="${#fields.hasErrors('live')}" class="error-message" th:errors="*{live}"></p>
 				</div>
+				</div>
 
-				<div class="col-12">
-					<button type="submit" class="btn btn-primary">新規登録</button>
+				<div class="row justify-content-center mt-5">
+						 <div class="col-4">
+					<button type="submit" class="btn w-100 btn-primary">新規登録</button>
+				</div>
 				</div>
 			</form>
 		</div>
