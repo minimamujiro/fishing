@@ -4,7 +4,7 @@
   bottom: 0;
   left: 0;
   z-index: 100;
-  padding: 90px 0 0;
+  padding: 70px 0 0;
   box-shadow: inset -1px 0 0 rgba(0, 0, 0, 0.1);
   z-index: 99; }
 
@@ -96,5 +96,15 @@
 #calendar a {
   color: #337ab7;
   text-decoration: none; }
+
+.users-wrapper {
+  background-image: url("/images/bg.JPG");
+  background-size: cover; }
+
+.users-wrapper-session {
+  background-image: url("/images/bg.JPG");
+  background-size: cover;
+  width: 100vw;
+  height: 100vh; }
 
 /*# sourceMappingURL=style.css.map */

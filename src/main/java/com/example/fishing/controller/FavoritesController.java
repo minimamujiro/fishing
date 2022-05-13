@@ -10,6 +10,7 @@ import javax.transaction.Transactional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.MessageSource;
+import org.springframework.http.ResponseEntity;
 import org.springframework.security.core.Authentication;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -24,6 +25,7 @@ import com.example.fishing.entity.Topic;
 import com.example.fishing.entity.UserInf;
 import com.example.fishing.form.TopicForm;
 import com.example.fishing.repository.FavoriteRepository;
+import com.example.fishing.service.S3Wrapper;
 
 @Controller
 public class FavoritesController {
@@ -36,6 +38,9 @@ public class FavoritesController {
 
 	@Autowired
 	private TopicsController topicsController;
+	
+	@Autowired
+	S3Wrapper s3;
 
 	/*お気に入りへのアクセス*/
 	@GetMapping(path = "/favorites")
@@ -50,6 +55,10 @@ public class FavoritesController {
 			list.add(form);
 		}
 		model.addAttribute("list", list);
+		model.addAttribute("hasSidebar", true);
+		ResponseEntity<byte[]> entity = s3.download("tags");
+		String body = new String(entity.getBody());
+		model.addAttribute("tags", body.split(System.getProperty("line.separator")));
 
 		return "topics/index";
 	}

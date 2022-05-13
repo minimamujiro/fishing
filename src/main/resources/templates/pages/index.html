@@ -9,20 +9,14 @@
  <body>
  <!-- layoutの各ページを表示される場所に入る内容 -->
  <div layout:fragment="contents">
-              <main class="col-md-9 ml-sm-auto px-md-4 py-4">
-                <nav aria-label="breadcrumb">
-                    <ol class="breadcrumb">
-                        <li class="breadcrumb-item"><a href="#">Home</a></li>
-                        <li class="breadcrumb-item active" aria-current="page">概要</li>
-                    </ol>
-                </nav>
+              <main class="col-md-10 ml-sm-auto px-md-4 py-4 users-wrapper">
                 <h1 class="h2">情報</h1>
-                
                 <div class="row my-4">
-                    <div class="col-12">
+                    <div class="col-7">
                         <div class="card">
                             <h5 class="card-header">釣りニュース</h5>
                             <div class="card-body">
+                            <a href="https://twitter.com/intent/tweet?button_hashtag=釣り&ref_src=twsrc%5Etfw" class="twitter-hashtag-button" data-show-count="false">Tweet #釣り</a><script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
                               <h5 class="card-title">何かのURL</h5>
                               <p class="card-text"></p>
                               <p class="card-text text-success">なしで良いかも？</p>
@@ -31,23 +25,23 @@
                     </div>   
                 </div>
                 <div class="row my-4">
-                    <div class="col-12">
+                    <div class="col-7">
                         <div class="card">
                             <h5 class="card-header">週間天気予報</h5>
                             <div class="card-body">
-                             <style>.max_temp{display:inline-block !important}.min_temp{display:inline-block !important}.temp{display:block !important}.rain_s{display:block !important}.pop-rain{undefined}.speed-wind{display:block !important}.deg-wind{display:block !important}.w_snow{undefined}.w_bg{background:linear-gradient(to right,#81d4fa, #fff)}</style><link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/weather-icons/2.0.12/css/weather-icons.min.css"><link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/weather-icons/2.0.12/css/weather-icons-wind.css"><link href="https://use.fontawesome.com/releases/v5.6.1/css/all.css" rel="stylesheet"><script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script><script type="text/javascript">weather_value=7;lat = 35.304169;lon =139.857117;inputText1 = "千葉県富津市";search_add = "千葉県富津市";</script><script src="https://sitecreation.co.jp/wp-content/themes/emanon-premium-child/tpl/weather.js"></script><link id="PageStyleSheet" rel="stylesheet" href="https://sitecreation.co.jp/wp-content/themes/emanon-premium-child/tpl/style.css"><div id="weather-wrapper"><div id="weather1"></div><div id="weather2"></div>
+                             <style>.max_temp{display:inline-block !important}.min_temp{display:inline-block !important}.temp{display:block !important}.rain_s{display:block !important}.pop-rain{undefined}.speed-wind{display:block !important}.deg-wind{display:block !important}.w_snow{undefined}.w_bg{background:linear-gradient(to right,#81d4fa, #fff)}</style><link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/weather-icons/2.0.12/css/weather-icons.min.css"><link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/weather-icons/2.0.12/css/weather-icons-wind.css"><link href="https://use.fontawesome.com/releases/v5.6.1/css/all.css" rel="stylesheet"><script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script><script type="text/javascript">weather_value=7;lat = 11.1111;lon = 333.3333;inputText1 = "茨城県水戸市";search_add = "茨城県水戸市";</script><script src="https://sitecreation.co.jp/wp-content/themes/emanon-premium-child/tpl/weather.js"></script><link id="PageStyleSheet" rel="stylesheet" href="https://sitecreation.co.jp/wp-content/themes/emanon-premium-child/tpl/style.css"><div id="weather-wrapper"><div id="weather1"></div><div id="weather2"></div>
                             </div>
                             </div>
                           </div>
                     </div>
                 </div>            
                 <div class="row my-4">
-                    <div class="col-12">
+                    <div class="col-7">
                         <div class="card">
                             <h5 class="card-header">タイドグラフ</h5>
                             <div class="card-body">
                               <h5 class="card-title">都道府県</h5>
-                              <p class="card-text">実際のグラフ表示</p>
+                              <p class="card-text"><img src="https://api.tide736.net/tide_image.php?pc=12&hc=10&yr=2022&mn=5&dy=13&rg=day&w=768&h=512&lc=blue&gcs=cyan&gcf=blue&ld=on&ttd=on&tsmd=on" th:src="@{|https://api.tide736.net/tide_image.php?pc=12&hc=10&yr=${year}&mn=${month}&dy=${day}&rg=day&w=768&h=512&lc=blue&gcs=cyan&gcf=blue&ld=on&ttd=on&tsmd=on|}"></p>
                             </div>
                           </div>
                     </div>
