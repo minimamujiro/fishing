@@ -4,6 +4,11 @@
  xmlms:layout="http://www.ultraq.net.nz/thymeleaf/layout"
  layout:decorate="~{layouts/layout}">
  <head>
+ <link rel="stylesheet" type="text/css"href="https://cdnjs.cloudflare.com/ajax/libs/weather-icons/2.0.12/css/weather-icons.min.css">
+<link rel="stylesheet" type="text/css"href="https://cdnjs.cloudflare.com/ajax/libs/weather-icons/2.0.12/css/weather-icons-wind.css">
+<link rel="stylesheet"href="https://use.fontawesome.com/releases/v5.6.1/css/all.css">
+<link id="PageStyleSheet" rel="stylesheet"href="https://sitecreation.co.jp/wp-content/themes/emanon-premium-child/tpl/style.css">
+<style>.max_temp{display:inline-block !important}.min_temp{display:inline-block !important}.temp{display:block !important}.rain_s{display:block !important}.pop-rain{undefined}.speed-wind{display:block !important}.deg-wind{display:block !important}.w_snow{undefined}.w_bg{background:linear-gradient(to right,#81d4fa, #fff)}</style>
  <title>Fishing</title>
  </head>
  <body>
@@ -16,7 +21,6 @@
                         <div class="card">
                             <h5 class="card-header">釣りニュース</h5>
                             <div class="card-body">
-                            <a href="https://twitter.com/intent/tweet?button_hashtag=釣り&ref_src=twsrc%5Etfw" class="twitter-hashtag-button" data-show-count="false">Tweet #釣り</a><script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
                               <h5 class="card-title">何かのURL</h5>
                               <p class="card-text"></p>
                               <p class="card-text text-success">なしで良いかも？</p>
@@ -29,8 +33,13 @@
                         <div class="card">
                             <h5 class="card-header">週間天気予報</h5>
                             <div class="card-body">
-                             <style>.max_temp{display:inline-block !important}.min_temp{display:inline-block !important}.temp{display:block !important}.rain_s{display:block !important}.pop-rain{undefined}.speed-wind{display:block !important}.deg-wind{display:block !important}.w_snow{undefined}.w_bg{background:linear-gradient(to right,#81d4fa, #fff)}</style><link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/weather-icons/2.0.12/css/weather-icons.min.css"><link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/weather-icons/2.0.12/css/weather-icons-wind.css"><link href="https://use.fontawesome.com/releases/v5.6.1/css/all.css" rel="stylesheet"><script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script><script type="text/javascript">weather_value=7;lat = 11.1111;lon = 333.3333;inputText1 = "茨城県水戸市";search_add = "茨城県水戸市";</script><script src="https://sitecreation.co.jp/wp-content/themes/emanon-premium-child/tpl/weather.js"></script><link id="PageStyleSheet" rel="stylesheet" href="https://sitecreation.co.jp/wp-content/themes/emanon-premium-child/tpl/style.css"><div id="weather-wrapper"><div id="weather1"></div><div id="weather2"></div>
+　　　　　　　　　　　　　　　　　　<div id="weather-wrapper">
+　　　　　　　　　　　　　　　　　　　　<div id="weather1"></div>
+　　　　　　　　　　　　　　　　　　　　<div id="weather2"></div>
                             </div>
+                            <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+　　　　　　　　　　　　　　　　　<script type="text/javascript">weather_value=7;lat = 35.330555;lon =139.902496;inputText1 = "千葉県君津市";search_add = "千葉県君津市";</script>
+　　　　　　　　　　　　　　　　　<script src="https://sitecreation.co.jp/wp-content/themes/emanon-premium-child/tpl/weather.js"></script>
                             </div>
                           </div>
                     </div>
