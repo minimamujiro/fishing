@@ -7,7 +7,7 @@
 </head>
 <body>
 	<div layout:fragment="contents">
-	  <main class="col-md-10 ml-sm-auto px-md-4 py-4 users-wrapper">
+	  <main class="col-md-10 ml-sm-auto px-md-4 py-4 users-wrapper-session">
 		<div class="mt-3 mb-3">
 		<h1 class="text-center">新規登録</h1>
 		</div>
@@ -46,7 +46,14 @@
 				<div class="row justify-content-center mb-3">
 					<div class="col-4">
 					<label for="inputCity" class="form-label">都道府県</label>
-					 <input type="text" class="form-control" th:placeholder="#{users.new.live.placeholder}" th:field="*{live}" /><p th:if="${#fields.hasErrors('live')}" class="error-message" th:errors="*{live}"></p>
+					<select  class="form-control" th:field="*{live}">
+					      <option value="00"></option>
+					      <option
+					        th:each="weather : ${citydata}"
+					        th:value="${weather.cityName}"
+                            th:text="${weather.cityName}">
+                          </option>
+						</select>
 				</div>
 				</div>
 

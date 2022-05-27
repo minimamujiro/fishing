@@ -54,7 +54,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 		.invalidateHttpSession(true).permitAll().and().csrf()
 		.csrfTokenRepository(CookieCsrfTokenRepository.withHttpOnlyFalse())
 		// form
-		.and().formLogin().loginPage("/login").defaultSuccessUrl("/").failureUrl("/login-failure")
+		.and().formLogin().loginPage("/login").defaultSuccessUrl("/auth").failureUrl("/login-failure")
 		.permitAll();
 		//@formatter:on
 	}

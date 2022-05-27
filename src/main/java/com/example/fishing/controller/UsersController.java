@@ -1,5 +1,6 @@
 package com.example.fishing.controller;
 
+import java.util.List;
 import java.util.Locale;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -18,8 +19,10 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.example.fishing.entity.User;
 import com.example.fishing.entity.User.Authority;
+import com.example.fishing.entity.Weather;
 import com.example.fishing.form.UserForm;
 import com.example.fishing.repository.UserRepository;
+import com.example.fishing.repository.WeatherRepository;
 
 @Controller
 public class UsersController {
@@ -32,6 +35,9 @@ public class UsersController {
 
 	@Autowired
 	private UserRepository repository;
+	
+	@Autowired
+	WeatherRepository weatherrepository;
 
 	/*user#newのゲットとマッピングする
 	 * モデルに"form"と名づけてUserFormの値を保存する
@@ -39,6 +45,9 @@ public class UsersController {
 	@GetMapping(path = "/users/new")
 	public String newUser(Model model) {
 		model.addAttribute("form", new UserForm());
+		
+		List<Weather> cityData = weatherrepository.findAll();
+		model.addAttribute("citydata", cityData);
 		return "users/new";
 	}
 	/*userのリクエストとマッピングする
