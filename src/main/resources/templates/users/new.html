@@ -47,11 +47,12 @@
 					<div class="col-4">
 					<label for="inputCity" class="form-label">都道府県</label>
 					<select  class="form-control" th:field="*{live}">
-					      <option value="" style="display: none;">釣りをする都道府県を選択してください</option>
-						  <option value="茨城県">茨城県</option>
-						  <option value="千葉県">千葉県</option>
-						  <option value="東京都">東京都</option>
-						  <option value="神奈川県">神奈川県</option>
+					      <option value="00"></option>
+					      <option
+					        th:each="weather : ${citydata}"
+					        th:value="${weather.cityName}"
+                            th:text="${weather.cityName}">
+                          </option>
 						</select>
 				</div>
 				</div>

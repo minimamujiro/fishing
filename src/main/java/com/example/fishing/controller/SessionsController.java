@@ -1,5 +1,7 @@
 package com.example.fishing.controller;
 
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.Locale;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -35,6 +37,14 @@ public class SessionsController {
 		model.addAttribute("hasMessage", true);
 		model.addAttribute("class", "alert-info");
 		model.addAttribute("message", messageSource.getMessage("sessions.logoutComplete.flash", new String[] {}, local));
+		
+		Date now = new Date();
+		String year = new SimpleDateFormat("yyyy").format(now);
+		String month = new SimpleDateFormat("M").format(now);
+		String day = new SimpleDateFormat("d").format(now);
+		model.addAttribute("year", year);
+		model.addAttribute("month", month);
+		model.addAttribute("day", day);
 
 		return "pages/index";
 	}
