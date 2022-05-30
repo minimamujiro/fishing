@@ -16,8 +16,8 @@
  <div layout:fragment="contents" th:each="weather : ${citydata}" th:object="${weather}">
               <main class="col-md-10 ml-sm-auto px-md-4 py-4 users-wrapper">
                 <h1 class="h2">情報</h1>
-                <div class="row my-4">
-                    <div class="col-7">
+                <div class="row mb-4">
+                    <div class="col-12 col-xl-8 mb-4 mb-lg-0">
                         <div class="card">
                             <h5 class="card-header">週間天気予報</h5>
                             <div class="card-body">
@@ -32,13 +32,15 @@
                           </div>
                     </div>
                 </div>            
-                <div class="row my-4">
-                    <div class="col-7">
+                <div class="row mb-4">
+                    <div class="col-12 col-xl-8 mb-4 mb-lg-0">
                         <div class="card">
                             <h5 class="card-header">タイドグラフ</h5>
                             <div class="card-body">
                               <h3 class="card-title" th:text="*{cityName}">都道府県</h3>
-                              <p class="card-text"><img src="https://api.tide736.net/tide_image.php?pc=12&hc=10&yr=2022&mn=5&dy=13&rg=day&w=768&h=512&lc=blue&gcs=cyan&gcf=blue&ld=on&ttd=on&tsmd=on" th:src="@{|https://api.tide736.net/tide_image.php?pc=*{city_code}&hc=01&yr=${year}&mn=${month}&dy=${day}&rg=day&w=768&h=512&lc=blue&gcs=cyan&gcf=blue&ld=on&ttd=on&tsmd=on|}"></p>
+                              <div>
+                                <img class="img-fluid" src="https://api.tide736.net/tide_image.php?pc=12&hc=10&yr=2022&mn=5&dy=13&rg=day&w=768&h=512&lc=blue&gcs=cyan&gcf=blue&ld=on&ttd=on&tsmd=on" th:src="@{|https://api.tide736.net/tide_image.php?pc=*{city_code}&hc=01&yr=${year}&mn=${month}&dy=${day}&rg=day&w=768&h=512&lc=blue&gcs=cyan&gcf=blue&ld=on&ttd=on&tsmd=on|}">
+                             </div>
                             </div>
                           </div>
                     </div>
